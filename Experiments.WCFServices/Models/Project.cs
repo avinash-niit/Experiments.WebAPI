@@ -1,4 +1,4 @@
-namespace Experiments.WebAPI.Models
+namespace Experiments.WCFServices
 {
     using System;
     using System.Collections.Generic;
@@ -43,9 +43,9 @@ namespace Experiments.WebAPI.Models
         [Timestamp]
         public byte[] RowVersion { get; set; }
 
-        public bool? Archived { get; set; }
+        public bool Archived { get; set; }
 
-        public bool? Locked { get; set; }
+        public bool Locked { get; set; }
 
         public DateTime Created { get; set; }
 
