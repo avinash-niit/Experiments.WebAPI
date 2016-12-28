@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using Experiments.WebAPI.Models;
+using Experiments.WebAPI.Filters;
 
 namespace Experiments.WebAPI.Controllers
 {
+    [ExceptionHelper]
     public class ProjectsController : ApiController
     {
         private ProjectsContext db = new ProjectsContext();

@@ -1,4 +1,4 @@
-namespace Experiments.WCFServices
+namespace Experiments.WCFServices.Models
 {
     using System;
     using System.Data.Entity;

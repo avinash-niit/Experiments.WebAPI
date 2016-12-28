@@ -1,32 +1,29 @@
-﻿using System;
+﻿using AutoMapper;
+using Experiments.WCFServices.Models;
+using Experiments.WCFServices.ServiceContracts;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.Serialization;
-using System.ServiceModel;
-using System.Text;
+using DC = Experiments.WCFServices.DataContracts;
 
-namespace Experiments.WCFServices
+namespace Experiments.WCFServices.Services
 {
     public class ProjectsService : IProjectsService
     {
         ProjectsContext context = new ProjectsContext();
 
-        public List<Project> GetAllProjects()
+        public List<DC.Project> GetAllProjects()
         {
-            List<Project> projects = null;
-            try
-            {
-                projects = context.Projects.ToList();
-            }
-            catch (Exception ex)
-            {
-            }
-            return projects;    
+            List<DC.Project> projects = null;
+            List<Project> dbProjects = context.Projects.ToList();
+            projects = Mapper.Map<List<DC.Project>>(dbProjects);
+            return projects;
         }
 
-        public Project GetProjectById(long id)
+        public DC.Project GetProjectById(long id)
         {
-            return context.Projects.Find(id);
+            Project project = context.Projects.Find(id);
+            return Mapper.Map<DC.Project>(project);
         }
     }
 }
