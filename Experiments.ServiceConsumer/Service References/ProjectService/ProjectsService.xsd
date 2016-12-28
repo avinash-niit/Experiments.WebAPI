@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Experiments.WCFServices" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Experiments.WCFServices" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfProject">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Project" nillable="true" type="tns:Project" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfProject" nillable="true" type="tns:ArrayOfProject" />
+  <xs:complexType name="Project">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Archived" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CostCentre" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Created" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ExpectedCompletionDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Id" type="xs:long" />
+      <xs:element minOccurs="0" name="LastModified" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Locked" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProjectSkills" nillable="true" type="tns:ArrayOfProjectSkill" />
+      <xs:element minOccurs="0" name="RowVersion" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="StartDate" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Project" nillable="true" type="tns:Project" />
+  <xs:complexType name="ArrayOfProjectSkill">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ProjectSkill" nillable="true" type="tns:ProjectSkill" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfProjectSkill" nillable="true" type="tns:ArrayOfProjectSkill" />
+  <xs:complexType name="ProjectSkill">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Project" nillable="true" type="tns:Project" />
+      <xs:element minOccurs="0" name="ProjectId" type="xs:long" />
+      <xs:element minOccurs="0" name="ProjectSkillId" type="xs:long" />
+      <xs:element minOccurs="0" name="Skill" nillable="true" type="tns:Skill" />
+      <xs:element minOccurs="0" name="SkillId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ProjectSkill" nillable="true" type="tns:ProjectSkill" />
+  <xs:complexType name="Skill">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Archived" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Created" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="LastModified" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProjectSkills" nillable="true" type="tns:ArrayOfProjectSkill" />
+      <xs:element minOccurs="0" name="Version" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Skill" nillable="true" type="tns:Skill" />
+</xs:schema>
